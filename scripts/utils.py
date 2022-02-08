@@ -3,6 +3,7 @@ from web3 import Web3
 
 LOCAL_BLOCKCHAIN_ENVIRONMENTS = ["hardhat", "development", "ganache", "mainnet-fork"]
 OPENSEA_URL = "https://testnets.opensea.io/assets/{}/{}"
+BREED_MAPPING = {0: "PUG", 1: "SHIBA_INU", 2: "ST_BERNARD"}
 
 def get_account(index=None, id=None):
     if index:
@@ -69,3 +70,6 @@ def fund_with_link(
     funding_tx.wait(1)
     print(f"Funded {contract_address}")
     return 
+
+def get_breed(breed_number):
+    return BREED_MAPPING[breed_number]
